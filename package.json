@@ -1,0 +1,53 @@
+{
+  "name": "@createiq/slidev-theme",
+  "version": "0.0.1",
+  "description": "CreateiQ Slidev theme",
+  "author": "CreateiQ <support@createiq.tech>",
+  "license": "MIT",
+  "homepage": "https://createiq.tech",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linklaterscreateiq/slidev-theme"
+  },
+  "bugs": "https://github.com/linklaterscreateiq/slidev-theme/issues",
+  "keywords": [
+    "slidev-theme",
+    "slidev",
+    "createiq"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "slidev": ">=0.47.0"
+  },
+  "slidev": {
+    "defaults": {
+      "fonts": {
+        "sans": "Lato",
+        "local": "Lato"
+      }
+    }
+  },
+  "scripts": {
+    "dev": "slidev example.md --open",
+    "build": "slidev build example.md",
+    "export": "slidev export example.md",
+    "screenshot": "slidev export example.md --format png",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@slidev/types": "^0.47.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.7",
+    "@slidev/cli": "52.6.0",
+    "husky": "9.1.7",
+    "lint-staged": "16.2.5",
+    "playwright-chromium": "1.56.1",
+    "vue": "3.5.22"
+  },
+  "lint-staged": {
+    "*": [
+      "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
+    ]
+  }
+}
