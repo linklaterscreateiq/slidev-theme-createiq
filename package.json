@@ -41,7 +41,7 @@
     "@biomejs/biome": "2.2.7",
     "@slidev/cli": "52.6.0",
     "husky": "9.1.7",
-    "lint-staged": "16.2.5",
+    "lint-staged": "16.2.6",
     "playwright-chromium": "1.56.1",
     "vue": "3.5.22"
   },
