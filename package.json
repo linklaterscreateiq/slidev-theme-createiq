@@ -7,9 +7,9 @@
   "homepage": "https://createiq.tech",
   "repository": {
     "type": "git",
-    "url": "https://github.com/linklaterscreateiq/slidev-theme"
+    "url": "https://github.com/linklaterscreateiq/slidev-theme-createiq"
   },
-  "bugs": "https://github.com/linklaterscreateiq/slidev-theme/issues",
+  "bugs": "https://github.com/linklaterscreateiq/slidev-theme-createiq/issues",
   "keywords": [
     "slidev-theme",
     "slidev",
