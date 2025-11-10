@@ -13,10 +13,10 @@ const colorscheme = computed(() => {
 </script>
 
 <template>
-  <div class="slidev-layout default w-full h-full" :class="colorscheme">
-    <main class="slidev-main pb-16">
-      <slot/>
-    </main>
+  <div class="slidev-layout quote" :class="colorscheme">
+    <div class="my-auto">
+      <slot />
+    </div>
 
     <div class="createiq-footer-bar">
       <div class="footer-content">

@@ -1,5 +1,5 @@
 <template>
-  <div class="slidev-layout cover text-center cover-bg w-full h-full flex flex-col justify-center createiq-dark-scheme">
+  <div class="slidev-layout intro text-center intro-bg w-full h-full flex flex-col justify-center createiq-dark-scheme">
     <main class="slidev-main flex flex-col justify-center items-center px-8" style="height: calc(100vh - 60vh);">
       <div class="createiq-logo text-6xl font-bold mb-12" style="color: var(--createiq-primary);">
         <img src="../assets/ciq_logo.svg" alt="CreateiQ" width="300"/>

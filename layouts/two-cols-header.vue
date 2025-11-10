@@ -1,17 +1,33 @@
+<script setup lang="js">
+import { computed } from 'vue'
+
+const props = defineProps({
+  color: {
+    default: 'light',
+  },
+})
+
+const colorscheme = computed(() => {
+  return `createiq-${props.color}-scheme`
+})
+</script>
+
 <template>
-  <div class="slidev-layout two-cols-header w-full h-full">
-    <div class="col-header">
-      <slot/>
-    </div>
-    <div class="col-left">
-      <slot name="left"/>
-    </div>
-    <div class="col-right">
-      <slot name="right"/>
-    </div>
-    <div class="col-bottom">
-      <slot name="bottom"/>
-    </div>
+  <div class="slidev-layout w-full h-full" :class="colorscheme">
+    <main class="slidev-main two-cols-header pb-16">
+      <div class="col-header">
+        <slot/>
+      </div>
+      <div class="col-left">
+        <slot name="left"/>
+      </div>
+      <div class="col-right">
+        <slot name="right"/>
+      </div>
+      <div class="col-bottom">
+        <slot name="bottom"/>
+      </div>
+    </main>
 
     <div class="createiq-footer-bar">
       <div class="footer-content">
@@ -53,3 +69,5 @@
   grid-area: 3 / 1 / 3 / 3;
 }
 </style>
+<script setup lang="ts">
+</script>

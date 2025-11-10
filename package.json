@@ -20,6 +20,7 @@
     "slidev": ">=0.47.0"
   },
   "slidev": {
+    "colorSchema": "light",
     "defaults": {
       "fonts": {
         "sans": "Lato",
