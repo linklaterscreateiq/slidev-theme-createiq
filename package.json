@@ -44,7 +44,7 @@
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "playwright-chromium": "1.58.1",
-    "vue": "3.5.27"
+    "vue": "3.5.29"
   },
   "lint-staged": {
     "*": [
