@@ -43,7 +43,7 @@
     "@slidev/cli": "52.11.5",
     "husky": "9.1.7",
     "lint-staged": "16.3.0",
-    "playwright-chromium": "1.58.1",
+    "playwright-chromium": "1.58.2",
     "vue": "3.5.29"
   },
   "lint-staged": {
