@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.4",
-    "@slidev/cli": "52.11.5",
+    "@slidev/cli": "52.13.0",
     "husky": "9.1.7",
     "lint-staged": "16.3.0",
     "playwright-chromium": "1.58.1",
