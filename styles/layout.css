@@ -39,22 +39,21 @@ h6 {
   line-height: 1.1;
 }
 
+/* Slidev sizes headings via .slidev-layout h1, which outranks a bare tag
+   selector. Set a size here only with that prefix, or it will not apply. */
+
 h1 {
-  font-size: 3.5rem;
   font-weight: 800;
-  margin-bottom: 2rem;
   letter-spacing: -0.025em;
 }
 
 h2 {
-  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
 }
 
 h3 {
-  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: var(--createiq-primary);
