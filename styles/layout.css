@@ -9,6 +9,10 @@
   --createiq-pink: #ec4899;
   --createiq-gray: #6b7280;
   --createiq-light-purple: #f3f4f6;
+
+  /* Slidev derives this from UnoCSS's mono theme key, not from the theme's own
+     fonts config, so every name in its default stack is absent on Linux. */
+  --slidev-code-font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 .slidev-layout {
