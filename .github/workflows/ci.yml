@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Lint and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.x'
+          cache: npm
+      - run: npm ci
+      - run: npx biome ci .
+      - run: npm run build
+
+  visual:
+    name: Visual regression
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          path: head
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.x'
+          cache: npm
+          cache-dependency-path: |
+            head/package-lock.json
+            base/package-lock.json
+
+      # Each side installs its own lockfile so the render reflects the bump.
+      - name: Render base
+        working-directory: base
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+          npx slidev export example.md --format png --output "$RUNNER_TEMP/base-png"
+
+      - name: Render head
+        working-directory: head
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+          npx slidev export example.md --format png --output "$RUNNER_TEMP/head-png"
+
+      - name: Compare
+        working-directory: head
+        run: node scripts/visual-diff.mjs "$RUNNER_TEMP/base-png" "$RUNNER_TEMP/head-png" "$RUNNER_TEMP/diff-png"
+
+      - name: Collect renders
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/visual-diff"
+          for side in base head diff; do
+            if [ -d "$RUNNER_TEMP/$side-png" ]; then
+              cp -r "$RUNNER_TEMP/$side-png" "$RUNNER_TEMP/visual-diff/$side"
+            fi
+          done
+
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: visual-diff
+          path: ${{ runner.temp }}/visual-diff
+          retention-days: 14
