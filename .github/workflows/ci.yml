@@ -48,6 +48,8 @@ jobs:
             base/package-lock.json
 
       # Each side installs its own lockfile so the render reflects the bump.
+      # The base commit predates package.json's allowScripts, so its npm ci
+      # cannot be relied on to fetch a browser.
       - name: Render base
         working-directory: base
         run: |
