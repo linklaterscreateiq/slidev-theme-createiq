@@ -33,7 +33,9 @@
     "build": "slidev build example.md",
     "export": "slidev export example.md",
     "screenshot": "slidev export example.md --format png",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "biome ci --error-on-warnings .",
+    "format": "biome check --write ."
   },
   "dependencies": {
     "@fontsource/fira-code": "5.3.0",
