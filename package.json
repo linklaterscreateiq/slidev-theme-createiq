@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.13",
-    "@slidev/cli": "52.19.1",
+    "@slidev/cli": "52.19.2",
     "husky": "9.1.7",
     "lint-staged": "17.5.1",
     "pixelmatch": "7.2.0",
